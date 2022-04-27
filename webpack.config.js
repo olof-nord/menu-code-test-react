@@ -8,6 +8,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 module.exports = {
     entry: ['./src/App.js'],
+    mode: 'development',
     module: {
         rules: [
             {
@@ -25,11 +26,29 @@ module.exports = {
                     },
                 ],
             },
-        ],
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
+        ]
     },
     output: {
         path: path.join(__dirname, '/public/webpack/'),
-        filename: 'bundle.js',
+        filename: '[name].[contenthash].js',
+        clean: true,
+    },
+    optimization: {
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
+        },
     },
     plugins: [htmlPlugin],
 };

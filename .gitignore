@@ -74,3 +74,6 @@ typings/
 
 # IDE files
 .idea
+
+# Webpack bundle
+public/webpack

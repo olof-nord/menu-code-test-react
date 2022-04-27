@@ -2,12 +2,13 @@
   "name": "ot-menu-test",
   "version": "1.0.0",
   "description": "A small scaffold application for building ot-menu coding challenge",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "start-server": "node src/server/index.js",
     "start-app": "webpack-dev-server --mode development --open",
     "start": "concurrently \"npm:start-server\" \"npm:start-app\"",
-    "test-server": "jest --testNamePattern='GraphQL|REST'"
+    "test-server": "jest --testNamePattern='GraphQL|REST'",
+    "build": "webpack"
   },
   "author": "OpenTable",
   "license": "ISC",
