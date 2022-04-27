@@ -1,4 +1,5 @@
 const supertest = require('supertest');
+
 const app = require('./server');
 
 describe('GraphQL server', () => {

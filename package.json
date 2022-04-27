@@ -7,7 +7,7 @@
     "start-server": "node src/server/index.js",
     "start-app": "webpack-dev-server --mode development --open",
     "start": "concurrently \"npm:start-server\" \"npm:start-app\"",
-    "test-server": "jest --testNamePattern=GraphQL"
+    "test-server": "jest --testNamePattern='GraphQL|REST'"
   },
   "author": "OpenTable",
   "license": "ISC",
