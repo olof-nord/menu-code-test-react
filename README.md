@@ -1,8 +1,11 @@
 # OpenTable front-end coding challenge
 
-Thank you for accepting our coding challenge. Please take as much time as required to give us a good indication of your coding strengths, as your application will provide many topics of conversation in the next interview stage.
+Thank you for accepting our coding challenge. Please take as much time as required to give us a good indication of your
+coding strengths, as your application will provide many topics of conversation in the next interview stage.
 
-However, in this challenging time, we understand that not everyone has the luxury of sitting down to work on a test uninterrupted. Therefore if you don't manage to implement all of the rules, please describes how you would achieve them or any improvement you would make in the email.
+However, in this challenging time, we understand that not everyone has the luxury of sitting down to work on a test
+uninterrupted. Therefore if you don't manage to implement all of the rules, please describes how you would achieve them
+or any improvement you would make in the email.
 
 ## The task
 
@@ -12,11 +15,14 @@ We would like you to build a web application.
 -   The application will present a menu that will be provided and may later require adjustment by a restaurant.
 -   The application will enforce some restrictions provided by the restaurant. (see [#rules](#rules))
 
-We have prepared a basic application structure for you using React and Webpack. Please add **any** additional libraries that you think are suitable, for example for data fetching, CSS, and testing.
+We have prepared a basic application structure for you using React and Webpack. Please add **any** additional libraries
+that you think are suitable, for example for data fetching, CSS, and testing.
 
-The menu data is served via GraphQL (http://localhost:3000/graphql) or the API (http://localhost:3000/api/v1/menu). The client application is in `src/App.js`.
+The menu data is served via GraphQL (http://localhost:3000/graphql) or the API (http://localhost:3000/api/v1/menu). The
+client application is in `src/App.js`.
 
-**IMPORTANT!** Please use either the GraphQL (preferred) or API approach to fetch menu data on your application, write as clean and maintainable code as possible, and make sure that it's covered by test cases.
+**IMPORTANT!** Please use either the GraphQL (preferred) or API approach to fetch menu data on your application, write
+as clean and maintainable code as possible, and make sure that it's covered by test cases.
 
 ## Rules
 
