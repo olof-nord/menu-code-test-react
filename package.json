@@ -8,7 +8,8 @@
     "start-app": "webpack-dev-server --mode development --open",
     "start": "concurrently \"npm:start-server\" \"npm:start-app\"",
     "test-server": "jest --testNamePattern='GraphQL|REST'",
-    "build": "webpack"
+    "build": "webpack",
+    "browserslist": "browserslist"
   },
   "author": "OpenTable",
   "license": "ISC",
@@ -25,6 +26,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "browserslist": "^4.20.3",
     "concurrently": "^6.2.1",
     "html-webpack-plugin": "^5.3.2",
     "jest": "^28.0.2",
