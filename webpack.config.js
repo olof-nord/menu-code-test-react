@@ -43,11 +43,17 @@ module.exports = {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
             },
+            {
+                test: /\.js$/,
+                enforce: "pre",
+                use: ["source-map-loader"],
+            }
         ]
     },
     output: {
         path: path.join(__dirname, 'dist/'),
         filename: '[name].[contenthash].js',
+        assetModuleFilename: 'images/[hash][ext][query]',
         clean: true,
     },
     optimization: {
