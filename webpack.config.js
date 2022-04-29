@@ -14,6 +14,14 @@ const dotEnvPlugin = new Dotenv({
 module.exports = {
     entry: ['./src/App.js'],
     mode: 'production',
+     devServer: {
+        static: 'dist/',
+        port: 8080,
+        client: {
+            logging: 'info',
+            progress: true,
+        },
+    },
     module: {
         rules: [
             {
@@ -38,7 +46,7 @@ module.exports = {
         ]
     },
     output: {
-        path: path.join(__dirname, '/public/webpack/'),
+        path: path.join(__dirname, 'dist/'),
         filename: '[name].[contenthash].js',
         clean: true,
     },
