@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { MantineProvider } from '@mantine/core';
 
-import { Menu } from './components/Menu/Menu';
+import { OTAppShell } from './components/OTAppShell/OTAppShell';
 
 function App() {
     const queryClient = new QueryClient();
@@ -13,7 +13,7 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <MantineProvider>
-                <Menu/>
+                <OTAppShell />
             </MantineProvider>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
