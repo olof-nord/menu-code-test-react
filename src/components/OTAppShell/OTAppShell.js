@@ -1,5 +1,6 @@
 import React from 'react';
-import { AppShell, Header, Title } from '@mantine/core';
+import { AppShell, Group, Header } from '@mantine/core';
+import { LetterO, LetterT } from 'tabler-icons-react';
 
 import { Menu } from '../Menu/Menu';
 
@@ -9,7 +10,10 @@ export function OTAppShell() {
         <AppShell
             header={
                 <Header height={70} p='md'>
-                    <Title order={3}>Menu</Title>
+                    <Group spacing={0}>
+                        <LetterO strokeWidth={3}/>
+                        <LetterT strokeWidth={3}/>
+                    </Group>
                 </Header>
             }
         >
