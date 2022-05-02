@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid } from '@mantine/core';
+import { Container } from '@mantine/core';
 
 import { useGetMenu } from '../../utils/fetchers';
 import { MenuSection } from '../MenuSection/MenuSection';
@@ -13,11 +13,9 @@ export function Menu() {
 
     return (
         <Container size='xl'>
-            <Grid gutter='sm'>
-                <MenuSection section={menu.starters} title='Starters'/>
-                <MenuSection section={menu.mains} title='Mains'/>
-                <MenuSection section={menu.desserts} title='Desserts'/>
-            </Grid>
+            <MenuSection section={menu.starters} title='Starters' />
+            <MenuSection section={menu.mains} title='Mains' />
+            <MenuSection section={menu.desserts} title='Desserts' />
         </Container>
     );
 }

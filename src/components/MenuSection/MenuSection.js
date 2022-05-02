@@ -5,7 +5,7 @@ import { Course } from '../Course/Course';
 
 export function MenuSection({section, title}) {
     return (
-        <>
+        <Grid gutter='sm'>
             <Grid.Col span={12}>
                 <Title order={2}>{ title }</Title>
             </Grid.Col>
@@ -15,6 +15,6 @@ export function MenuSection({section, title}) {
                     <Course course={course}></Course>
                 </Grid.Col>
             ))}
-        </>
+        </Grid>
     );
 }

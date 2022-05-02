@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { setupServer } from 'msw/node';
 import { setLogger } from 'react-query';
 
-import { handlers } from './mockRequests';
+import { handlers } from './requestMock';
 
 // This sets up mocks for rest calls
 // see https://tkdodo.eu/blog/testing-react-query

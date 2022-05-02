@@ -8,7 +8,7 @@ export function useGetStarters() {
         const { menu } = await request(
             BACKEND_GRAPHQL,
             gql`
-                query {
+                query Starters {
                   menu {
                     starters {
                       id
@@ -28,7 +28,7 @@ export function useGetMains() {
         const { menu } = await request(
             BACKEND_GRAPHQL,
             gql`
-                query {
+                query Mains {
                   menu {
                     mains {
                       id
@@ -48,7 +48,7 @@ export function useGetDesserts() {
         const { menu } = await request(
             BACKEND_GRAPHQL,
             gql`
-                query {
+                query Desserts {
                   menu {
                     desserts {
                       id
@@ -68,7 +68,7 @@ export function useGetMenu() {
         const { menu }  = await request(
             BACKEND_GRAPHQL,
             gql`
-                query {
+                query Menu {
                   menu {
                     starters {
                       id

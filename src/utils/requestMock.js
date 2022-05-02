@@ -4,7 +4,7 @@ import menu from '../server/static/menu-data.json';
 
 export const handlers = [
 
-    graphql.operation((req, res, ctx) => {
+    graphql.query('Menu', (req, res, ctx) => {
         const response = {
             data: {
                 menu
