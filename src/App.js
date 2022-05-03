@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { MantineProvider } from '@mantine/core';
+import { NotificationsProvider } from '@mantine/notifications';
 
 import { OTAppShell } from './components/OTAppShell/OTAppShell';
 import { OrderStateProvider } from './components/OrderState/OrderStateProvider';
@@ -14,9 +15,11 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <MantineProvider>
-                <OrderStateProvider>
-                    <OTAppShell />
-                </OrderStateProvider>
+                <NotificationsProvider>
+                    <OrderStateProvider>
+                        <OTAppShell />
+                    </OrderStateProvider>
+                </NotificationsProvider>
             </MantineProvider>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

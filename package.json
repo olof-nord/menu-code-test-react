@@ -16,8 +16,9 @@
   "author": "OpenTable",
   "license": "ISC",
   "dependencies": {
-    "@mantine/core": "^4.2.1",
-    "@mantine/hooks": "^4.2.1",
+    "@mantine/core": "^4.2.2",
+    "@mantine/hooks": "^4.2.2",
+    "@mantine/notifications": "^4.2.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",

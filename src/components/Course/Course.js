@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Drawer, Group, Image, Text } from '@mantine/core';
 
-import { CourseDrawer } from '../CourseDrawer/CourseDrawer';
+import { CourseSelector } from '../CourseSelector/CourseSelector';
 
 export function Course({course}) {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -29,7 +29,7 @@ export function Course({course}) {
                 size='25%'
                 position='bottom'
             >
-                <CourseDrawer course={course} />
+                <CourseSelector course={course} />
             </Drawer>
         </>
     );
