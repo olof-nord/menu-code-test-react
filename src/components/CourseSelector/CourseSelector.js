@@ -27,11 +27,11 @@ export function CourseSelector({ course }) {
 
     return (
         <Group>
-            <Button onClick={() => addNewItem(course, 1)} leftIcon={<Avatar size={25} />}>
+            <Button onClick={() => addNewItem(course, 1)} leftIcon={<Avatar size={25} />} color="indigo">
                 <Text>Person 1</Text>
             </Button>
 
-            <Button onClick={() => addNewItem(course, 2)} leftIcon={<Avatar size={25} />}>
+            <Button onClick={() => addNewItem(course, 2)} leftIcon={<Avatar size={25} />} color="lime">
                 <Text>Person 2</Text>
             </Button>
         </Group>
