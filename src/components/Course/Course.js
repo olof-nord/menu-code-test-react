@@ -29,7 +29,7 @@ export function Course({course}) {
                 size='25%'
                 position='bottom'
             >
-                <CourseDrawer />
+                <CourseDrawer course={course} />
             </Drawer>
         </>
     );

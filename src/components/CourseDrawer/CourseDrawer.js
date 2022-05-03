@@ -1,25 +1,30 @@
-import React, { useState } from 'react';
-import { Avatar, Group, Paper, Text } from '@mantine/core';
+import React, { useContext } from 'react';
+import { Avatar, Button, Group, Text } from '@mantine/core';
 
-export function CourseDrawer() {
-    const [menuOne, selectMenuOne] = useState(false);
-    const [menuTwo, selectMenuTwo] = useState(false);
+import OrderContext from '../OrderState/OrderState';
+
+export function CourseDrawer({ course }) {
+    const { addOrder } = useContext(OrderContext);
+
+    const addNewItem = (id, person) => {
+        addOrder(prevItems => [
+            ...prevItems,
+            {
+                course,
+                person
+            }
+        ]);
+    };
 
     return (
-        <>
-            <Paper radius="md" style={{ background: menuOne ? 'gray' : 'white' }}>
-                <Group onClick={() => selectMenuOne(!menuOne)} >
-                    <Avatar radius='xl' />
-                    <Text>Person 1</Text>
-                </Group>
-            </Paper>
+        <Group>
+            <Button onClick={() => addNewItem(course, 1)} leftIcon={<Avatar size={25} />}>
+                <Text>Person 1</Text>
+            </Button>
 
-            <Paper radius="md" style={{ background: menuTwo ? 'gray' : 'white' }}>
-                <Group onClick={() => selectMenuTwo(!menuTwo)}>
-                    <Avatar radius='xl' />
-                    <Text>Person 2</Text>
-                </Group>
-            </Paper>
-        </>
+            <Button onClick={() => addNewItem(course, 2)} leftIcon={<Avatar size={25} />}>
+                <Text>Person 2</Text>
+            </Button>
+        </Group>
     );
 }

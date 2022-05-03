@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { MantineProvider } from '@mantine/core';
 
 import { OTAppShell } from './components/OTAppShell/OTAppShell';
+import { OrderStateProvider } from './components/OrderState/OrderStateProvider';
 
 function App() {
     const queryClient = new QueryClient();
@@ -13,7 +14,9 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <MantineProvider>
-                <OTAppShell />
+                <OrderStateProvider>
+                    <OTAppShell />
+                </OrderStateProvider>
             </MantineProvider>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
