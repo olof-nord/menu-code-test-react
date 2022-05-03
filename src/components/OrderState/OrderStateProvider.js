@@ -9,6 +9,10 @@ export function OrderStateProvider(props) {
         return orders[personId].size;
     };
 
+    const getOrders = (personId) => {
+        return Array.from(orders[personId]);
+    };
+
     const isAlreadyOrdered = (course, personId) => {
         return orders[personId].has(course);
     };
@@ -53,6 +57,7 @@ export function OrderStateProvider(props) {
 
     const orderStateContext = {
         addOrder,
+        getOrders,
         removeOrder,
         countOrders,
         isAlreadyOrdered

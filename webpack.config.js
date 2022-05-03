@@ -21,6 +21,7 @@ module.exports = {
             logging: 'info',
             progress: true,
         },
+         historyApiFallback: true
     },
     module: {
         rules: [
