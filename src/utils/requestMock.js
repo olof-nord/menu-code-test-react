@@ -14,6 +14,20 @@ export const handlers = [
         return res(
             ctx.data(response)
         );
+    }),
+
+    graphql.query('Mains', (req, res, ctx) => {
+        const response = {
+            data: {
+                menu: {
+                    mains: menu.mains
+                }
+            },
+        }
+
+        return res(
+            ctx.data(response)
+        );
     })
 
 ];
