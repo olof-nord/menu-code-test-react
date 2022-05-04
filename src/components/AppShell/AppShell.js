@@ -1,13 +1,23 @@
 import React, { useContext } from 'react';
-import { AppShell as MantineAppShell, Grid, Group, Header, Indicator, UnstyledButton } from '@mantine/core';
+import {
+    AppShell as MantineAppShell,
+    Center,
+    Grid,
+    Group,
+    Header,
+    Indicator,
+    Title,
+    UnstyledButton
+} from '@mantine/core';
 import { Basket, LetterO, LetterT } from 'tabler-icons-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import OrderContext from '../OrderState/OrderState';
 
 export function AppShell({ children }) {
 
     const { countOrders } = useContext(OrderContext);
+    const location = useLocation();
 
     return (
         <MantineAppShell
@@ -15,7 +25,7 @@ export function AppShell({ children }) {
             header={
                 <Header height={70} p='xs'>
                     <Grid gutter={0} align="center">
-                        <Grid.Col span={6}>
+                        <Grid.Col span={4}>
                             <Group spacing={0}>
                                 <UnstyledButton component={Link} to='/'>
                                     <LetterO strokeWidth={3} />
@@ -23,7 +33,12 @@ export function AppShell({ children }) {
                                 </UnstyledButton>
                             </Group>
                         </Grid.Col>
-                        <Grid.Col span={6}>
+                        <Grid.Col span={4}>
+                            <Center>
+                                <Title order={2}> {location.pathname === '/' ? 'Menu' : 'Order'} </Title>
+                            </Center>
+                        </Grid.Col>
+                        <Grid.Col span={4}>
                             <Group position='right' spacing='md'>
                                 <UnstyledButton component={Link} to='/orders'>
                                     <Indicator inline label={countOrders(2)} size={16} color='lime'>
