@@ -50,7 +50,7 @@ export function Order() {
             <Space h="lg" />
 
             <Button fullWidth onClick={() => checkItems()}>
-                Verify order { menuTotal !== 0 && `(${menuTotal} €)` }
+                Checkout { menuTotal !== 0 && `(${menuTotal} €)` }
             </Button>
         </Container>
     );
