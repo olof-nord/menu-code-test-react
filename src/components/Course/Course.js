@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Drawer, Group, Image, Text } from '@mantine/core';
+import { Card, Drawer, Group, Image, Text, UnstyledButton } from '@mantine/core';
 
 import { CourseSelector } from '../CourseSelector/CourseSelector';
 
@@ -10,16 +10,18 @@ export function Course({course}) {
 
     return (
         <>
-            <Card shadow='sm' p='lg' onClick={() => setDrawerOpen(true)}>
-                <Card.Section>
-                    <Image src={require(`../../images/${imageName}.jpg`)} height={160} alt={`${course.name} photo`} />
-                </Card.Section>
+            <UnstyledButton style={{ width: "100%", height: "100%" }} onClick={() => setDrawerOpen(true)}>
+                <Card shadow='sm' p='lg'>
+                    <Card.Section>
+                        <Image src={require(`../../images/${imageName}.jpg`)} height={160} alt={`${course.name} photo`} />
+                    </Card.Section>
 
-                <Group position='apart'>
-                    <Text>{course.name}</Text>
-                    <Text>{course.price} €</Text>
-                </Group>
-            </Card>
+                    <Group position='apart'>
+                        <Text>{course.name}</Text>
+                        <Text>{course.price} €</Text>
+                    </Group>
+                </Card>
+            </UnstyledButton>
 
             <Drawer
                 opened={drawerOpen}
