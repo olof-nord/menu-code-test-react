@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const menu = require('./static/menu-data.json');
 const gqlSchema = require('./static/gql-schema');
 
-const FRONTEND = process.env.FRONTEND = 'http://localhost:8080';
+const FRONTEND = process.env.FRONTEND_URL = 'http://localhost:8080';
 
 const app = express();
 

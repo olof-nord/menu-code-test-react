@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { gql, request } from 'graphql-request';
 
-const BACKEND_GRAPHQL = process.env.BACKEND_GRAPHQL || 'http://localhost:3000/graphql';
+const BACKEND_GRAPHQL = process.env.BACKEND_GRAPHQL_URL || 'http://localhost:3000/graphql';
 
 export function useGetStarters() {
     return useQuery('starters', async () => {

@@ -1,0 +1,35 @@
+version: "3.8"
+
+networks:
+    public:
+        external: true
+    internal:
+
+services:
+    ot-menu-test-frontend:
+        container_name: ot-menu-test-frontend
+        build:
+            args:
+                - BACKEND_GRAPHQL_URL=ot-menu-test-backend
+            context: .
+            dockerfile: Dockerfile.frontend
+        networks:
+            - public
+            - internal
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.ot-menu-test-frontend.rule=Host(`menu.olof.info`)
+            - traefik.http.routers.ot-menu-test-frontend.service=ot-menu-test-frontend
+            - traefik.http.services.ot-menu-test-frontend.loadbalancer.server.port=8080
+        depends_on:
+            - ot-menu-test-backend
+
+    ot-menu-test-backend:
+        container_name: ot-menu-test-backend
+        build:
+            context: .
+            dockerfile: Dockerfile.backend
+        environment:
+            - FRONTEND_URL=https://menu.olof.info
+        networks:
+            - internal

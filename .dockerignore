@@ -1,0 +1,14 @@
+# Coverage directory
+coverage/
+
+# Webpack bundle
+dist/
+
+# Dependency directory
+node_modules/
+
+# IDE files
+.idea/
+
+# git
+.git/
