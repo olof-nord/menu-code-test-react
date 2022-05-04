@@ -1,4 +1,6 @@
-module.exports = `
+const { gql } = require('graphql-request');
+
+module.exports = gql`
     """
     The Dish represents the single item on the menu
     """
