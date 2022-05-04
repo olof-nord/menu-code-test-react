@@ -13,6 +13,19 @@ export function OrderStateProvider(props) {
         return Array.from(orders[personId]);
     };
 
+    const getBill = (personId) => {
+        let bill = 0;
+        orders[personId].forEach(order => {
+            bill += order.price
+        });
+
+        return bill;
+    };
+
+    const getTotal = () => {
+        return getBill(1) + getBill(2);
+    };
+
     const isAlreadyOrdered = (course, personId) => {
         return orders[personId].has(course);
     };
@@ -60,7 +73,9 @@ export function OrderStateProvider(props) {
         getOrders,
         removeOrder,
         countOrders,
-        isAlreadyOrdered
+        isAlreadyOrdered,
+        getBill,
+        getTotal
     };
 
     return (
