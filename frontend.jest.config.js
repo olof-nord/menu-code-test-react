@@ -11,6 +11,7 @@ module.exports = {
     coveragePathIgnorePatterns: [
         '<rootDir>/node_modules/',
         '<rootDir>/dist/',
+        '<rootDir>/src/server/',
         '<rootDir>/src/utils/'
     ]
 };
