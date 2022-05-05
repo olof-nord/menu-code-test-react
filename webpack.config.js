@@ -1,14 +1,14 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const { EnvironmentPlugin } = require('webpack');
 
 const htmlPlugin = new HtmlWebPackPlugin({
     template: './public/index.html',
     filename: './index.html',
 });
 
-const dotEnvPlugin = new Dotenv({
-    systemVars: true,
+const environmentPlugin = new EnvironmentPlugin({
+    'BACKEND_GRAPHQL_URL': undefined
 });
 
 module.exports = {
@@ -70,5 +70,5 @@ module.exports = {
             },
         },
     },
-    plugins: [htmlPlugin, dotEnvPlugin],
+    plugins: [htmlPlugin, environmentPlugin],
 };
