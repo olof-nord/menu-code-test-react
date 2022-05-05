@@ -1,6 +1,6 @@
 FROM node:16-slim as build-deps
 
-ARG BACKEND_GRAPHQL="http://localhost:3000/graphql"
+ARG BACKEND_GRAPHQL_URL="http://localhost:3000/graphql"
 
 # install pnpm
 RUN corepack enable && corepack prepare pnpm@7.0.0 --activate
@@ -12,7 +12,7 @@ WORKDIR /home/node/app
 COPY --chown=node:node package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-ENV BACKEND_GRAPHQL=${BACKEND_GRAPHQL}
+ENV BACKEND_GRAPHQL_URL=${BACKEND_GRAPHQL_URL}
 
 COPY --chown=node:node . .
 RUN pnpm run build
