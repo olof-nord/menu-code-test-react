@@ -10,7 +10,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 require('dotenv').config();
 
 const environmentPlugin = new EnvironmentPlugin({
-    'BACKEND_GRAPHQL_URL': undefined
+    'BACKEND_GRAPHQL_URL': null
 });
 
 module.exports = {
