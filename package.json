@@ -10,7 +10,7 @@
     "test-server": "jest --testNamePattern='GraphQL|REST' --config=backend.jest.config.js",
     "test-app": "jest --testNamePattern='App' --config=frontend.jest.config.js",
     "test": "npm run test-server && npm run test-app",
-    "build": "webpack",
+    "build": "webpack --progress",
     "browserslist": "browserslist"
   },
   "author": "OpenTable",
