@@ -7,6 +7,8 @@ const htmlPlugin = new HtmlWebPackPlugin({
     filename: './index.html',
 });
 
+require('dotenv').config();
+
 const environmentPlugin = new EnvironmentPlugin({
     'BACKEND_GRAPHQL_URL': undefined
 });

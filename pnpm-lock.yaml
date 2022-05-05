@@ -14,6 +14,7 @@ specifiers:
   browserslist: ^4.20.3
   concurrently: ^6.2.1
   cors: ^2.8.5
+  dotenv: ^16.0.0
   express: ^4.17.1
   express-graphql: ^0.12.0
   graphql: ^15.5.1
@@ -62,6 +63,7 @@ devDependencies:
   babel-loader: 8.2.5_vs5hf2sl7hjtttp43d2vzw3qay
   browserslist: 4.20.3
   concurrently: 6.5.1
+  dotenv: 16.0.0
   html-webpack-plugin: 5.5.0_webpack@5.72.0
   jest: 28.0.2
   jest-environment-jsdom: 28.0.2
@@ -3364,6 +3366,11 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.4.0
+    dev: true
+
+  /dotenv/16.0.0:
+    resolution: {integrity: sha512-qD9WU0MPM4SWLPJy/r2Be+2WgQj8plChsyrCNQzW/0WjvcJQiKQJ9mH3ZgB3fxbUUxgc/11ZJ0Fi5KiimWGz2Q==}
+    engines: {node: '>=12'}
     dev: true
 
   /ee-first/1.1.1:
