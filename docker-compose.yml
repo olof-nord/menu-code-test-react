@@ -10,12 +10,11 @@ services:
         container_name: ot-menu-test-frontend
         build:
             args:
-                - BACKEND_GRAPHQL_URL=ot-menu-test-backend
+                - BACKEND_GRAPHQL_URL=https://menu.olof.info/api/graphql
             context: .
             dockerfile: Dockerfile.frontend
         networks:
             - public
-            - internal
         labels:
             - traefik.enable=true
             - traefik.http.routers.ot-menu-test-frontend.rule=Host(`menu.olof.info`)
@@ -31,5 +30,36 @@ services:
             dockerfile: Dockerfile.backend
         environment:
             - FRONTEND_URL=https://menu.olof.info
+        networks:
+            - public
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.ot-menu-test-backend.rule=Host(`menu.olof.info`) && PathPrefix(`/api`)
+            - traefik.http.routers.ot-menu-test-backend.middlewares=strip-api@docker
+            - traefik.http.middlewares.strip-api.stripprefix.prefixes=/api
+
+    ot-menu-test-frontend-localhost:
+        container_name: ot-menu-test-frontend-localhost
+        build:
+            args:
+                - BACKEND_GRAPHQL_URL=http://localhost:3000/graphql
+            context: .
+            dockerfile: Dockerfile.frontend
+        ports:
+            - "8080:8080"
+        networks:
+            - internal
+        depends_on:
+            - ot-menu-test-backend-localhost
+
+    ot-menu-test-backend-localhost:
+        container_name: ot-menu-test-backend-localhost
+        build:
+            context: .
+            dockerfile: Dockerfile.backend
+        environment:
+            - FRONTEND_URL=http://localhost:8080
+        ports:
+            - "3000:3000"
         networks:
             - internal
