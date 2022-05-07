@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -12,10 +12,10 @@ describe('App Order', () => {
         defaultOptions: { queries: { retry: false } }
     });
 
-    test('should show the loading message', async () => {
+    test('should display menu valid notification if order is OK', async () => {
 
         const orderContextMock = {
-            getOrders: jest.fn(),
+            getOrders: jest.fn().mockReturnValue([]),
             getTotal: jest.fn(),
             verifyOrders: jest.fn().mockReturnValue([])
         };
@@ -24,7 +24,7 @@ describe('App Order', () => {
             <QueryClientProvider client={queryClient}>
                 <OrderStateProviderMock value={orderContextMock}>
                     <MantineProvider>
-                        <NotificationsProvider>
+                        <NotificationsProvider autoClose={false}>
                             <Order />
                         </NotificationsProvider>
                     </MantineProvider>
@@ -32,7 +32,41 @@ describe('App Order', () => {
             </QueryClientProvider>
         );
 
-        const loading = await screen.findByText(/Loading…/i);
-        expect(loading).toBeInTheDocument();
+        const checkout = await screen.findByRole('button');
+
+        fireEvent.click(checkout);
+
+        const notificationTitle = await screen.findByText(/Menu valid/i);
+        expect(notificationTitle).toBeInTheDocument();
+    });
+
+    test('should display menu invalid notification if order is not ok', async () => {
+
+        const orderContextMock = {
+            getOrders: jest.fn().mockReturnValue([]),
+            getTotal: jest.fn(),
+            verifyOrders: jest.fn().mockReturnValue([
+                "Menu 1 needs at least two courses!"
+            ])
+        };
+
+        render(
+            <QueryClientProvider client={queryClient}>
+                <OrderStateProviderMock value={orderContextMock}>
+                    <MantineProvider>
+                        <NotificationsProvider autoClose={false}>
+                            <Order />
+                        </NotificationsProvider>
+                    </MantineProvider>
+                </OrderStateProviderMock>
+            </QueryClientProvider>
+        );
+
+        const checkout = await screen.findByRole('button');
+
+        fireEvent.click(checkout);
+
+        const notificationTitle = await screen.findByText(/Menu invalid/i);
+        expect(notificationTitle).toBeInTheDocument();
     });
 });

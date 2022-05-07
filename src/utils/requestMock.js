@@ -6,9 +6,7 @@ export const handlers = [
 
     graphql.query('Menu', (req, res, ctx) => {
         const response = {
-            data: {
-                menu
-            },
+            menu
         }
 
         return res(
@@ -18,10 +16,8 @@ export const handlers = [
 
     graphql.query('Mains', (req, res, ctx) => {
         const response = {
-            data: {
-                menu: {
-                    mains: menu.mains
-                }
+            menu: {
+                mains: menu.mains
             },
         }
 
