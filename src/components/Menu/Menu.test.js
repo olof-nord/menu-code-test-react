@@ -10,7 +10,7 @@ describe('App Menu', () => {
         defaultOptions: { queries: { retry: false } }
     });
 
-    test('should show the loading message', async () => {
+    test('should render the menu sections', async () => {
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -18,7 +18,12 @@ describe('App Menu', () => {
             </QueryClientProvider>
         );
 
-        const loading = await screen.findByText(/Loading…/i);
-        expect(loading).toBeInTheDocument();
+        const starters = await screen.findByText(/Starters/i);
+        const mains = await screen.findByText(/Starters/i);
+        const desserts = await screen.findByText(/Starters/i);
+
+        expect(starters).toBeInTheDocument();
+        expect(mains).toBeInTheDocument();
+        expect(desserts).toBeInTheDocument();
     });
 });
