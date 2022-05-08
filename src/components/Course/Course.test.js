@@ -3,7 +3,9 @@ import { fireEvent, render, screen, waitForElementToBeRemoved } from '@testing-l
 import { MantineProvider } from '@mantine/core';
 
 import { Course } from './Course';
-import OrderStateProviderMock from '../../utils/orderStateProviderMock';
+
+import { CourseSelector } from '../CourseSelector/CourseSelector';
+jest.mock('../CourseSelector/CourseSelector');
 
 describe('App Course', () => {
     test('should show the course', async () => {
@@ -29,11 +31,7 @@ describe('App Course', () => {
 
     test('should allow opening the course selection drawer', async () => {
 
-        const orderContextMock = {
-            addOrder: jest.fn(),
-            removeOrder: jest.fn(),
-            isAlreadyOrdered: jest.fn().mockReturnValue(false)
-        };
+        CourseSelector.mockImplementation(() => <div>CourseSelectorMock</div>);
 
         const course = {
             id: 1,
@@ -43,9 +41,7 @@ describe('App Course', () => {
 
         render(
             <MantineProvider>
-                <OrderStateProviderMock value={orderContextMock}>
-                    <Course course={course} />
-                </OrderStateProviderMock>
+                <Course course={course} />
             </MantineProvider>
         );
 
@@ -59,9 +55,7 @@ describe('App Course', () => {
 
     test('should allow closing the course selection drawer', async () => {
 
-        const orderContextMock = {
-            isAlreadyOrdered: jest.fn()
-        };
+        CourseSelector.mockImplementation(() => <div>CourseSelectorMock</div>);
 
         const course = {
             id: 1,
@@ -71,9 +65,7 @@ describe('App Course', () => {
 
         render(
             <MantineProvider>
-                <OrderStateProviderMock value={orderContextMock}>
-                    <Course course={course} />
-                </OrderStateProviderMock>
+                <Course course={course} />
             </MantineProvider>
         );
 
